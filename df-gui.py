@@ -34,10 +34,8 @@ promptfield.pack()
 
 # Create the generate button
 def generate():
-    # Insert your arbitrary Python code here
     # text embeds
     prompt = promptfield.get()
-    print(f"Prompt contains: {prompt}")
     prompt_embeds, negative_embeds = stage_1.encode_prompt(prompt)
     
     # randomize seed
@@ -55,8 +53,7 @@ def generate():
     photo = ImageTk.PhotoImage(new_image)
     image_label.configure(image=photo)
     image_label.image = photo  # This line is needed to prevent the photo from being garbage collected
-    print("Generate button clicked!")
-
+    
 generate_button = tk.Button(input_frame, text="Generate", command=generate)
 generate_button.pack()
 
